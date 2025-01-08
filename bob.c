@@ -4,6 +4,7 @@ void pagerankdumping(int size, const double **AdjacencyMatrix, double *firststat
 {
     int i = 0;
     int j = 0;
+    int temp;
     double sum;
     double **ProbabilityTransitionMatrix = (double **)calloc(size, sizeof(double *));
     for (i = 0; i < size; i++)
@@ -30,6 +31,7 @@ void pagerankdumping(int size, const double **AdjacencyMatrix, double *firststat
     }
 
     // Olasılık geçiş matrisini bastıralım.
+    printf("Probability Transition Matrix:\n");
     for (i = 0; i < size; i++)
     {
         for (j = 0; j < size; j++)
@@ -57,10 +59,26 @@ void pagerankdumping(int size, const double **AdjacencyMatrix, double *firststat
     }
 
     // Son durum matrisini bastıralım.
+    printf("\nEigenvector responding to eigenvalue 1:\n");
     for (i = 0; i < size; i++)
     {
         printf("%f\n", firststatevector[i]);
     }
+
+	printf("\nPage rank in descending order:\n");
+	for (i = 0; i < size; i++)
+	{
+		temp = 0;
+		for (j = 0; j < size; j++)
+		{
+			if (firststatevector[j] > firststatevector[temp])
+			{
+				temp = j;
+			}
+		}
+		printf("Page %d: %f\n", temp+1, firststatevector[temp]);
+		firststatevector[temp] = -1;
+	}
 
     for (int i = 0; i < size; i++) 
         free(ProbabilityTransitionMatrix[i]);

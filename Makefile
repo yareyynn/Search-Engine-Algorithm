@@ -1,12 +1,15 @@
 CC = gcc
 CFLAGS = -Wall -std=c99
 
-SOURCES = alice.c bob.c q1/a.c q1/b.c q2/a.c q2/b.c q2/c.c q2/d.c q2/e.c q3/a.c q3/b.c q4/a.c q4/b.c
+SOURCES = alice.c bob.c q1/a.c q1/b.c q2/a.c q2/b.c q2/c.c q2/d.c q2/e.c q3/a.c q3/b.c q4/a.c q4/b.c test.c
 OBJECTS = $(SOURCES:.c=.o)
 
-TARGETS = q1a q1b q2a q2b q2c q2d a2e q3a q3b q4a
+TARGETS = q1a q1b q2a q2b q2c q2d a2e q3a q3b q4a test
 
 all: $(TARGETS)
+
+test: test.o alice.o
+	$(CC) -o test test.o alice.o $(CFLAGS)
 
 q1a: q1/a.o alice.o
 	$(CC) -o q1a q1/a.o alice.o $(CFLAGS)
@@ -40,6 +43,9 @@ q4a: q4/a.o alice.o
 
 q4b: q4/b.o alice.o
 	$(CC) -o q4b q4/b.o alice.o $(CFLAGS)
+
+test.o: test.c
+	$(CC) -c test.c -o test.o $(CFLAGS)
 
 q1/a.o: q1/a.c
 	$(CC) -c q1/a.c -o q1/a.o $(CFLAGS)

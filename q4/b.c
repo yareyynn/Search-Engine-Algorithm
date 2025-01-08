@@ -28,10 +28,10 @@ int main()
 	AdjacencyMatrix[3][3] = 0;
 	
 
-	firststatevector[0] = 1/4;
-	firststatevector[1] = 1/4;
-	firststatevector[2] = 1/4;
-	firststatevector[3] = 1/4;
+	firststatevector[0] = 1.0/4.0;
+	firststatevector[1] = 1.0/4.0;
+	firststatevector[2] = 1.0/4.0;
+	firststatevector[3] = 1.0/4.0;
 
 	pagerank(size, (const double **)AdjacencyMatrix, firststatevector, 15);
 
