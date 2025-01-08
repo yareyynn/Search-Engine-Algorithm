@@ -1,0 +1,8 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/yarensakarya/Desktop/complin/output/alice'
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _pagerank, symObjAddr: 0x0, symBinAddr: 0x10000382C, symSize: 0x544 }
+  - { offsetInCU: 0x61, offset: 0x61, size: 0x8, addend: 0x0, symName: _pagerank, symObjAddr: 0x0, symBinAddr: 0x10000382C, symSize: 0x544 }
+  - { offsetInCU: 0x13B, offset: 0x13B, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x544, symBinAddr: 0x100003D70, symSize: 0x190 }
+...
